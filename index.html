@@ -94,6 +94,48 @@ bottom:-180px;
 left:-100px;
 animation:float 10s infinite alternate ease-in-out;
 }
+.loader-content{
+position:relative;
+z-index:2;
+text-align:center;
+}
+
+.loader-role{
+margin-top:18px;
+letter-spacing:7px;
+font-size:13px;
+opacity:0;
+color:#9eb6ec;
+}
+
+.loader-line{
+width:0%;
+height:2px;
+margin:30px auto 0;
+background:linear-gradient(90deg,#4f8cff,#7cf7ff);
+border-radius:20px;
+}
+
+.loader-bg{
+position:absolute;
+width:800px;
+height:800px;
+border-radius:50%;
+background:radial-gradient(circle,rgba(79,140,255,.18),transparent 70%);
+filter:blur(20px);
+animation:pulse 3s infinite alternate;
+}
+
+@keyframes pulse{
+from{
+transform:scale(0.9);
+opacity:.5;
+}
+to{
+transform:scale(1.1);
+opacity:1;
+}
+}
 
 @keyframes float{
 from{transform:translateY(0px);}
@@ -426,8 +468,23 @@ font-size:38px;
 <!-- Loader -->
 
 <div id="loader">
-<div class="loader-name">VIGNESH</div>
-<div class="loader-sub">JR EMBEDDED FIRMWARE ENGINEER</div>
+
+<div class="loader-bg"></div>
+
+<div class="loader-content">
+
+<div class="loader-name">
+VIGNESH
+</div>
+
+<div class="loader-role">
+JR EMBEDDED FIRMWARE ENGINEER
+</div>
+
+<div class="loader-line"></div>
+
+</div>
+
 </div>
 
 <div class="bg1"></div>
@@ -481,6 +538,12 @@ Motivated Junior Embedded Firmware Engineer with industry experience in developi
 Explore Projects
 </a>
 
+<a href="Vignesh_Thanasekaran_Resume.pdf"
+class="btn btn-outline"
+target="_blank">
+📄 Download Resume
+</a>
+
 <a href="mailto:vignesht829@gmail.com" class="btn btn-outline">
 Contact Me
 </a>
@@ -507,7 +570,7 @@ Professional experience and embedded systems training.
 
 <div class="timeline">
 
-<!-- SIGNAL AND SYSTEMS -->
+<!-- SIGNALS AND SYSTEMS -->
 
 <div class="timeline-card hidden">
 
@@ -520,7 +583,9 @@ Junior Embedded Firmware Engineer
 </h3>
 
 <div class="timeline-company">
-Signal and Systems Pvt. Ltd · Chennai
+<a href="https://www.sandsindia.com/" target="_blank">
+Signal and Systems Pvt. Ltd
+</a> · Chennai
 </div>
 
 <ul>
@@ -554,7 +619,9 @@ Advanced Course in Embedded Systems
 </h3>
 
 <div class="timeline-company">
-Vector India · Chennai
+<a href="https://www.vectorindia.org/" target="_blank">
+Vector India
+</a> · Chennai
 </div>
 
 <ul>
@@ -772,9 +839,10 @@ B.E Electronics & Communication Engineering
 </h3>
 
 <p style="margin-top:10px;color:#d9e2ff;">
-Saranathan College of Engineering, Trichy
+<a href="https://www.saranathan.ac.in/" target="_blank">
+Saranathan College of Engineering
+</a>, Trichy
 </p>
-
 <p style="margin-top:15px;color:var(--muted);line-height:1.8;">
 2020 – 2024 <br>
 CGPA: 8.67 / 10.0 <br>
@@ -790,7 +858,9 @@ Higher Secondary
 </h3>
 
 <p style="margin-top:10px;color:#d9e2ff;">
+<a href="https://www.sfsschoolpdkt.com/" target="_blank">
 SFS Matriculation Higher Secondary School
+</a>
 </p>
 
 <p style="margin-top:15px;color:var(--muted);line-height:1.8;">
@@ -889,61 +959,74 @@ Built & Designed by Vignesh Thanasekaran · Jr Embedded Firmware Engineer
 
 <script>
 
-/* Loader Animation */
+const tl = gsap.timeline();
 
-gsap.to(".loader-name",{
+/* Premium Loader */
+
+tl.to(".loader-name",{
 opacity:1,
+y:-10,
 duration:1.2,
-y:-10
-});
+ease:"power3.out"
+})
 
-gsap.to(".loader-sub",{
+.to(".loader-role",{
 opacity:1,
-delay:.8,
-duration:1
-});
+y:-5,
+duration:1,
+ease:"power3.out"
+},"-=0.6")
+
+.to(".loader-line",{
+width:"220px",
+duration:1.2,
+ease:"power2.inOut"
+},"-=0.4");
 
 setTimeout(()=>{
+
 gsap.to("#loader",{
 opacity:0,
 duration:1,
+ease:"power3.inOut",
 onComplete:()=>{
 document.getElementById("loader").style.display="none";
 }
 });
-},2500);
+
+},2800);
 
 /* Hero Animation */
 
 gsap.from(".hero-tag",{
 opacity:0,
 y:40,
-delay:2.7,
+delay:3,
 duration:1
 });
 
 gsap.from("h1",{
 opacity:0,
 y:60,
-delay:2.9,
+delay:3.2,
 duration:1
 });
 
 gsap.from(".hero-desc",{
 opacity:0,
 y:40,
-delay:3.2,
+delay:3.4,
 duration:1
 });
 
 gsap.from(".hero-buttons",{
 opacity:0,
 y:40,
-delay:3.5,
+delay:3.6,
 duration:1
 });
 
-/* Scroll Animation */
+/* Scroll Reveal */
 
 const observer=new IntersectionObserver((entries)=>{
 entries.forEach((entry)=>{
