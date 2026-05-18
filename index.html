@@ -1,415 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Vignesh Thanasekaran | Embedded Firmware Engineer</title>
+<title>Vignesh Thanasekaran | Jr Embedded Firmware Engineer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 <style>
 
 :root{
-    --bg:#050816;
-    --bg2:#0c1227;
-    --card:rgba(255,255,255,0.05);
-    --border:rgba(255,255,255,0.08);
-    --text:#ffffff;
-    --muted:#98a5c4;
-    --accent:#4f8cff;
-    --accent2:#7cf7ff;
+--bg:#060816;
+--bg2:#0d1227;
+--card:rgba(255,255,255,0.05);
+--border:rgba(255,255,255,0.08);
+--text:#ffffff;
+--muted:#9ca9c9;
+--accent:#4f8cff;
+--accent2:#7cf7ff;
 }
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-    background:linear-gradient(to bottom,var(--bg),var(--bg2));
-    color:var(--text);
-    font-family:'Inter',sans-serif;
-    overflow-x:hidden;
+font-family:'Inter',sans-serif;
+background:linear-gradient(to bottom,var(--bg),var(--bg2));
+color:var(--text);
+overflow-x:hidden;
 }
 
 /* Loader */
 
 #loader{
-    position:fixed;
-    inset:0;
-    background:#02040d;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    z-index:9999;
+position:fixed;
+inset:0;
+background:#02040d;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
 }
 
 .loader-name{
-    font-size:clamp(2rem,8vw,7rem);
-    font-weight:800;
-    opacity:0;
-    background:linear-gradient(90deg,#fff,#4f8cff,#7cf7ff);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+font-size:clamp(2rem,8vw,7rem);
+font-weight:800;
+opacity:0;
+background:linear-gradient(90deg,#fff,#4f8cff,#7cf7ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .loader-sub{
-    margin-top:15px;
-    letter-spacing:6px;
-    color:#90a5d7;
-    opacity:0;
-    font-size:14px;
+margin-top:15px;
+letter-spacing:6px;
+font-size:14px;
+opacity:0;
+color:#90a5d7;
 }
 
 /* Background */
 
 .bg1{
-    position:fixed;
-    width:600px;
-    height:600px;
-    border-radius:50%;
-    background:radial-gradient(circle,rgba(79,140,255,.2),transparent 70%);
-    top:-150px;
-    right:-100px;
-    animation:float 7s infinite alternate ease-in-out;
+position:fixed;
+width:600px;
+height:600px;
+border-radius:50%;
+background:radial-gradient(circle,rgba(79,140,255,.18),transparent 70%);
+top:-180px;
+right:-100px;
+animation:float 7s infinite alternate ease-in-out;
 }
 
 .bg2{
-    position:fixed;
-    width:500px;
-    height:500px;
-    border-radius:50%;
-    background:radial-gradient(circle,rgba(124,247,255,.12),transparent 70%);
-    bottom:-180px;
-    left:-100px;
-    animation:float 10s infinite alternate ease-in-out;
+position:fixed;
+width:500px;
+height:500px;
+border-radius:50%;
+background:radial-gradient(circle,rgba(124,247,255,.12),transparent 70%);
+bottom:-180px;
+left:-100px;
+animation:float 10s infinite alternate ease-in-out;
 }
 
 @keyframes float{
-    from{transform:translateY(0px);}
-    to{transform:translateY(40px);}
+from{transform:translateY(0px);}
+to{transform:translateY(40px);}
 }
 
-/* Nav */
+/* Navbar */
 
 nav{
-    position:fixed;
-    top:0;
-    width:100%;
-    z-index:100;
-    background:rgba(4,8,20,.55);
-    backdrop-filter:blur(20px);
-    border-bottom:1px solid rgba(255,255,255,.05);
+position:fixed;
+top:0;
+width:100%;
+z-index:100;
+background:rgba(4,8,20,.6);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,.05);
 }
 
 .nav-container{
-    max-width:1200px;
-    margin:auto;
-    padding:22px 30px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+max-width:1200px;
+margin:auto;
+padding:22px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
 .logo{
-    font-size:24px;
-    font-weight:700;
+font-size:24px;
+font-weight:700;
 }
 
 .logo span{
-    color:var(--accent);
+color:var(--accent);
 }
 
 .nav-links{
-    display:flex;
-    gap:35px;
+display:flex;
+gap:35px;
 }
 
 .nav-links a{
-    text-decoration:none;
-    color:var(--muted);
-    transition:.3s;
-    font-size:14px;
+text-decoration:none;
+color:var(--muted);
+transition:.3s;
+font-size:14px;
 }
 
 .nav-links a:hover{
-    color:#fff;
+color:#fff;
 }
 
 /* Hero */
 
 .hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    padding:120px 30px;
-    position:relative;
-    z-index:1;
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:120px 30px;
+position:relative;
+z-index:1;
 }
 
 .hero-container{
-    max-width:1200px;
-    margin:auto;
-    width:100%;
+max-width:1200px;
+margin:auto;
+width:100%;
 }
 
 .hero-tag{
-    color:var(--accent2);
-    letter-spacing:5px;
-    margin-bottom:20px;
-    font-size:14px;
+color:var(--accent2);
+letter-spacing:5px;
+font-size:14px;
+margin-bottom:25px;
 }
 
 .hero h1{
-    font-size:clamp(3rem,8vw,7rem);
-    line-height:1;
-    font-weight:800;
+font-size:clamp(3rem,8vw,7rem);
+line-height:1;
+font-weight:800;
 }
 
 .hero h1 span{
-    display:block;
-    color:var(--accent);
+display:block;
+color:var(--accent);
 }
 
 .hero-desc{
-    max-width:720px;
-    margin-top:30px;
-    color:var(--muted);
-    line-height:1.9;
-    font-size:18px;
+max-width:760px;
+margin-top:30px;
+color:var(--muted);
+line-height:1.9;
+font-size:18px;
 }
 
 .hero-buttons{
-    margin-top:40px;
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
+margin-top:40px;
+display:flex;
+gap:20px;
+flex-wrap:wrap;
 }
 
 .btn{
-    padding:16px 32px;
-    border-radius:14px;
-    text-decoration:none;
-    font-weight:600;
-    transition:.3s;
+padding:16px 32px;
+border-radius:14px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
 }
 
 .btn-primary{
-    background:linear-gradient(90deg,var(--accent),#7cf7ff);
-    color:white;
+background:linear-gradient(90deg,var(--accent),#7cf7ff);
+color:white;
 }
 
 .btn-primary:hover{
-    transform:translateY(-4px);
+transform:translateY(-5px);
 }
 
 .btn-outline{
-    border:1px solid rgba(255,255,255,.12);
-    color:white;
+border:1px solid rgba(255,255,255,.12);
+color:white;
 }
 
 .btn-outline:hover{
-    background:rgba(255,255,255,.05);
+background:rgba(255,255,255,.05);
 }
 
-/* Section */
+/* Sections */
 
 section{
-    padding:100px 30px;
-    position:relative;
-    z-index:1;
+padding:100px 30px;
+position:relative;
+z-index:1;
 }
 
 .container{
-    max-width:1200px;
-    margin:auto;
+max-width:1200px;
+margin:auto;
 }
 
 .section-title{
-    font-size:48px;
-    margin-bottom:18px;
-    font-weight:800;
+font-size:48px;
+font-weight:800;
+margin-bottom:15px;
 }
 
 .section-sub{
-    color:var(--muted);
-    margin-bottom:55px;
+color:var(--muted);
+margin-bottom:55px;
 }
 
 /* Grid */
 
 .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:28px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:28px;
 }
 
 /* Cards */
 
 .card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:24px;
-    padding:30px;
-    transition:.4s;
-    backdrop-filter:blur(20px);
+background:var(--card);
+border:1px solid var(--border);
+border-radius:24px;
+padding:30px;
+backdrop-filter:blur(20px);
+transition:.4s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    border-color:rgba(79,140,255,.4);
+transform:translateY(-8px);
+border-color:rgba(79,140,255,.4);
 }
 
 .card h3{
-    margin-bottom:15px;
-    font-size:24px;
+margin-bottom:15px;
+font-size:24px;
 }
 
 .card p{
-    color:var(--muted);
-    line-height:1.8;
+color:var(--muted);
+line-height:1.8;
 }
 
 .tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:25px;
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:25px;
 }
 
 .tag{
-    background:rgba(79,140,255,.12);
-    border:1px solid rgba(79,140,255,.18);
-    padding:8px 14px;
-    border-radius:999px;
-    font-size:13px;
+background:rgba(79,140,255,.12);
+border:1px solid rgba(79,140,255,.18);
+padding:8px 14px;
+border-radius:999px;
+font-size:13px;
 }
 
 /* Timeline */
 
 .timeline{
-    display:flex;
-    flex-direction:column;
-    gap:30px;
+display:flex;
+flex-direction:column;
+gap:30px;
 }
 
 .timeline-card{
-    background:var(--card);
-    border:1px solid var(--border);
-    padding:35px;
-    border-radius:24px;
-    transition:.4s;
+background:var(--card);
+border:1px solid var(--border);
+padding:35px;
+border-radius:24px;
+transition:.4s;
 }
 
 .timeline-card:hover{
-    border-color:rgba(79,140,255,.4);
-    transform:translateY(-6px);
+transform:translateY(-6px);
+border-color:rgba(79,140,255,.4);
 }
 
 .timeline-date{
-    color:var(--accent2);
-    margin-bottom:12px;
-    font-size:14px;
+color:var(--accent2);
+margin-bottom:12px;
+font-size:14px;
 }
 
 .timeline-company{
-    color:#cdd8f7;
-    margin-top:6px;
+color:#d3defe;
+margin-top:6px;
 }
 
 .timeline ul{
-    margin-top:20px;
-    padding-left:18px;
-    line-height:2;
-    color:var(--muted);
+margin-top:20px;
+padding-left:18px;
+line-height:2;
+color:var(--muted);
 }
 
 /* Education */
 
 .edu-card{
-    background:var(--card);
-    border:1px solid var(--border);
-    padding:28px;
-    border-radius:22px;
+background:var(--card);
+border:1px solid var(--border);
+padding:28px;
+border-radius:22px;
+transition:.4s;
+}
+
+.edu-card:hover{
+transform:translateY(-6px);
+border-color:rgba(79,140,255,.4);
 }
 
 /* Contact */
 
 .contact-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
 .contact-box{
-    background:var(--card);
-    border:1px solid var(--border);
-    padding:30px;
-    border-radius:22px;
-    text-decoration:none;
-    transition:.3s;
+background:var(--card);
+border:1px solid var(--border);
+padding:30px;
+border-radius:22px;
+text-decoration:none;
+transition:.3s;
 }
 
 .contact-box:hover{
-    transform:translateY(-8px);
-    border-color:rgba(79,140,255,.4);
+transform:translateY(-8px);
+border-color:rgba(79,140,255,.4);
 }
 
 .contact-box h4{
-    color:white;
-    margin-bottom:10px;
+margin-bottom:10px;
+color:white;
 }
 
 .contact-box p{
-    color:var(--muted);
+color:var(--muted);
 }
 
 /* Footer */
 
 footer{
-    text-align:center;
-    padding:40px;
-    color:#7e8cb5;
-    border-top:1px solid rgba(255,255,255,.05);
+text-align:center;
+padding:40px;
+color:#7e8cb5;
+border-top:1px solid rgba(255,255,255,.05);
 }
 
 /* Animation */
 
 .hidden{
-    opacity:0;
-    transform:translateY(50px);
-    transition:all 1s;
+opacity:0;
+transform:translateY(50px);
+transition:all 1s;
 }
 
 .show{
-    opacity:1;
-    transform:translateY(0);
+opacity:1;
+transform:translateY(0);
 }
-
-/* Mobile */
 
 @media(max-width:768px){
 
-    .nav-links{
-        display:none;
-    }
+.nav-links{
+display:none;
+}
 
-    .hero h1{
-        font-size:54px;
-    }
+.hero h1{
+font-size:54px;
+}
 
-    .section-title{
-        font-size:38px;
-    }
+.section-title{
+font-size:38px;
+}
 
 }
 
@@ -421,16 +426,17 @@ footer{
 <!-- Loader -->
 
 <div id="loader">
-    <div class="loader-name">VIGNESH</div>
-    <div class="loader-sub">EMBEDDED FIRMWARE ENGINEER</div>
+<div class="loader-name">VIGNESH</div>
+<div class="loader-sub">JR EMBEDDED FIRMWARE ENGINEER</div>
 </div>
 
 <div class="bg1"></div>
 <div class="bg2"></div>
 
-<!-- Navigation -->
+<!-- Navbar -->
 
 <nav>
+
 <div class="nav-container">
 
 <div class="logo">
@@ -447,6 +453,7 @@ Vignesh<span>.</span>
 </div>
 
 </div>
+
 </nav>
 
 <!-- Hero -->
@@ -456,7 +463,7 @@ Vignesh<span>.</span>
 <div class="hero-container">
 
 <div class="hero-tag">
-STM32 · ARM CORTEX-M · EMBEDDED SYSTEMS
+JR EMBEDDED FIRMWARE ENGINEER
 </div>
 
 <h1>
@@ -465,15 +472,19 @@ Vignesh
 </h1>
 
 <p class="hero-desc">
-Motivated Junior Embedded Firmware Engineer with industry experience in developing real-time embedded systems for precision metering applications. Skilled in STM32 firmware development, communication protocols, and low-level programming with a strong passion for building reliable embedded solutions.
+Motivated Junior Embedded Firmware Engineer with industry experience in developing real-time embedded systems for precision metering applications. Skilled in STM32 firmware development, communication protocols, low-level programming, and embedded system design with a strong passion for building reliable and efficient embedded solutions.
 </p>
 
 <div class="hero-buttons">
-<a href="#projects" class="btn btn-primary">Explore Projects</a>
+
+<a href="#projects" class="btn btn-primary">
+Explore Projects
+</a>
 
 <a href="mailto:vignesht829@gmail.com" class="btn btn-outline">
 Contact Me
 </a>
+
 </div>
 
 </div>
@@ -486,13 +497,17 @@ Contact Me
 
 <div class="container">
 
-<h2 class="section-title hidden">Experience</h2>
+<h2 class="section-title hidden">
+Experience
+</h2>
 
 <p class="section-sub hidden">
-Industry experience in firmware engineering and embedded systems.
+Professional experience and embedded systems training.
 </p>
 
 <div class="timeline">
+
+<!-- SIGNAL AND SYSTEMS -->
 
 <div class="timeline-card hidden">
 
@@ -509,12 +524,51 @@ Signal and Systems Pvt. Ltd · Chennai
 </div>
 
 <ul>
+
 <li>Developed firmware for TPRS and SPRS precision metering systems.</li>
+
 <li>Worked with STM32 microcontrollers using SPI, UART, and I2C protocols.</li>
+
 <li>Implemented real-time data acquisition and peripheral interfacing.</li>
+
 <li>Prepared technical documentation using Sphinx.</li>
+
 <li>Collaborated with hardware and QA teams for validation and testing.</li>
-<li>Completed Embedded Systems Certification from Vector India.</li>
+
+<li>Worked on smart calibration processes for high-accuracy portable reference standard meters.</li>
+
+</ul>
+
+</div>
+
+<!-- VECTOR INDIA -->
+
+<div class="timeline-card hidden">
+
+<div class="timeline-date">
+August 2024 — March 2025
+</div>
+
+<h3>
+Advanced Course in Embedded Systems
+</h3>
+
+<div class="timeline-company">
+Vector India · Chennai
+</div>
+
+<ul>
+
+<li>Successfully completed Advanced Embedded Systems Certification covering Embedded C, C++, Linux Internals, TCP/IP, Socket Programming, ARM, and 8051.</li>
+
+<li>Developed embedded firmware applications using communication protocols including UART, SPI, I2C, and CAN.</li>
+
+<li>Worked on ARM Cortex-M based embedded systems and real-time peripheral interfacing.</li>
+
+<li>Completed a project titled <strong>Vehicle Dashboard Using CAN Communication</strong> involving multi-node CAN-based communication architecture.</li>
+
+<li>Gained hands-on experience in debugging, firmware development, low-level programming, and embedded system design.</li>
+
 </ul>
 
 </div>
@@ -531,15 +585,18 @@ Signal and Systems Pvt. Ltd · Chennai
 
 <div class="container">
 
-<h2 class="section-title hidden">Technical Skills</h2>
+<h2 class="section-title hidden">
+Technical Skills
+</h2>
 
 <p class="section-sub hidden">
-Core technologies, tools, and engineering expertise.
+Core technologies and engineering expertise.
 </p>
 
 <div class="grid">
 
 <div class="card hidden">
+
 <h3>Programming</h3>
 
 <div class="tags">
@@ -548,9 +605,11 @@ Core technologies, tools, and engineering expertise.
 <div class="tag">Embedded C</div>
 <div class="tag">Python</div>
 </div>
+
 </div>
 
 <div class="card hidden">
+
 <h3>Communication Protocols</h3>
 
 <div class="tags">
@@ -560,9 +619,11 @@ Core technologies, tools, and engineering expertise.
 <div class="tag">CAN</div>
 <div class="tag">TCP/IP</div>
 </div>
+
 </div>
 
 <div class="card hidden">
+
 <h3>Tools & Software</h3>
 
 <div class="tags">
@@ -572,38 +633,18 @@ Core technologies, tools, and engineering expertise.
 <div class="tag">Proteus</div>
 <div class="tag">Sphinx</div>
 </div>
+
 </div>
 
 <div class="card hidden">
+
 <h3>Operating Systems</h3>
 
 <div class="tags">
 <div class="tag">Linux</div>
 <div class="tag">Windows</div>
 </div>
-</div>
 
-<div class="card hidden">
-<h3>Domain Expertise</h3>
-
-<div class="tags">
-<div class="tag">Embedded Systems</div>
-<div class="tag">Firmware Development</div>
-<div class="tag">Precision Metering</div>
-<div class="tag">Technical Documentation</div>
-<div class="tag">Real-Time Systems</div>
-</div>
-</div>
-
-<div class="card hidden">
-<h3>Achievements</h3>
-
-<div class="tags">
-<div class="tag">Smart India Hackathon 2022</div>
-<div class="tag">First Class Distinction</div>
-<div class="tag">Runner-up Cricket</div>
-<div class="tag">Runner-up Hockey</div>
-</div>
 </div>
 
 </div>
@@ -618,7 +659,9 @@ Core technologies, tools, and engineering expertise.
 
 <div class="container">
 
-<h2 class="section-title hidden">Projects</h2>
+<h2 class="section-title hidden">
+Projects
+</h2>
 
 <p class="section-sub hidden">
 Embedded firmware and real-world engineering projects.
@@ -627,75 +670,84 @@ Embedded firmware and real-world engineering projects.
 <div class="grid">
 
 <div class="card hidden">
-<h3>TPRS – Portable Reference Standard Meter</h3>
+
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;gap:15px;flex-wrap:wrap;">
+<h3>⚡ Smart Calibration – TPRS Calibration Process</h3>
+<span style="color:#7cf7ff;font-size:13px;">May 2025 – Present</span>
+</div>
 
 <p>
-Developed firmware for a three-phase portable energy meter calibration system using STM32 microcontrollers with high-accuracy real-time processing.
+Independently developed Smart Calibration firmware to automate the calibration sequence of the Three-Phase Portable Reference Standard Meter, reducing manual calibration effort and improving accuracy on STM32 microcontrollers.
 </p>
 
 <div class="tags">
 <div class="tag">STM32</div>
+<div class="tag">Embedded C</div>
 <div class="tag">SPI</div>
 <div class="tag">UART</div>
 <div class="tag">ADC</div>
 </div>
+
 </div>
 
 <div class="card hidden">
-<h3>SPRS – Single Phase Meter</h3>
+
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;gap:15px;flex-wrap:wrap;">
+<h3>🔌 TPRS & SPRS – Portable Reference Standard Meters</h3>
+<span style="color:#7cf7ff;font-size:13px;">May 2025 – Present</span>
+</div>
 
 <p>
-Implemented firmware modules for voltage, current, and power measurement systems with precision calibration support.
+Developed firmware modules for Three-Phase and Single-Phase Portable Reference Standard Meters. Integrated SPI, I2C, and UART peripherals for data acquisition and authored full technical documentation using Sphinx.
 </p>
 
 <div class="tags">
 <div class="tag">STM32</div>
-<div class="tag">I2C</div>
 <div class="tag">Embedded C</div>
+<div class="tag">I2C</div>
+<div class="tag">SPI</div>
+<div class="tag">Sphinx</div>
 </div>
+
 </div>
 
 <div class="card hidden">
-<h3>Vehicle Dashboard using CAN</h3>
+
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;gap:15px;flex-wrap:wrap;">
+<h3>🚗 Vehicle Control Dashboard using CAN Protocol</h3>
+<span style="color:#7cf7ff;font-size:13px;">Dec 2024 – Jan 2025</span>
+</div>
 
 <p>
-Designed a multi-node vehicle dashboard using CAN protocol with real-time synchronization and LPC2129 controllers.
+Designed a multi-node vehicle dashboard for real-time monitoring of fuel level, indicators, and wiper control. Programmed four CAN nodes on LPC2129 microcontrollers with LCD display and real-time synchronisation across all nodes.
 </p>
 
 <div class="tags">
-<div class="tag">CAN Bus</div>
 <div class="tag">LPC2129</div>
 <div class="tag">Embedded C</div>
-</div>
+<div class="tag">CAN Bus</div>
 </div>
 
-<div class="card hidden">
-<h3>Bidirectional Visitor Counter</h3>
-
-<p>
-Built an occupancy monitoring system with EEPROM storage, RTC integration, and automated home lighting control.
-</p>
-
-<div class="tags">
-<div class="tag">EEPROM</div>
-<div class="tag">RTC</div>
-<div class="tag">I2C</div>
-</div>
 </div>
 
 <div class="card hidden">
-<h3>IoT VR Home Automation</h3>
+
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;gap:15px;flex-wrap:wrap;">
+<h3>🏠 IoT-Based VR Home Automation with LPG Gas Management</h3>
+<span style="color:#7cf7ff;font-size:13px;">Jan 2024 – May 2024</span>
+</div>
 
 <p>
-Developed a VR-based home automation system integrated with IoT sensors and CNN gesture recognition.
+Built a VR-based home automation interface integrated with IoT sensors for real-time device control and LPG gas monitoring. Implemented CNN-based hand gesture recognition for touch-free user interaction.
 </p>
 
 <div class="tags">
 <div class="tag">Python</div>
-<div class="tag">CNN</div>
-<div class="tag">VR</div>
 <div class="tag">IoT</div>
+<div class="tag">VR</div>
+<div class="tag">CNN</div>
 </div>
+
 </div>
 
 </div>
@@ -710,14 +762,19 @@ Developed a VR-based home automation system integrated with IoT sensors and CNN 
 
 <div class="container">
 
-<h2 class="section-title hidden">Education</h2>
+<h2 class="section-title hidden">
+Education
+</h2>
 
 <div class="grid">
 
 <div class="edu-card hidden">
-<h3>B.E Electronics & Communication Engineering</h3>
 
-<p style="margin-top:10px;color:#cbd5f5;">
+<h3>
+B.E Electronics & Communication Engineering
+</h3>
+
+<p style="margin-top:10px;color:#d9e2ff;">
 Saranathan College of Engineering, Trichy
 </p>
 
@@ -730,9 +787,12 @@ First Class with Distinction
 </div>
 
 <div class="edu-card hidden">
-<h3>Higher Secondary</h3>
 
-<p style="margin-top:10px;color:#cbd5f5;">
+<h3>
+Higher Secondary
+</h3>
+
+<p style="margin-top:10px;color:#d9e2ff;">
 SFS Matriculation Higher Secondary School
 </p>
 
@@ -744,9 +804,12 @@ SFS Matriculation Higher Secondary School
 </div>
 
 <div class="edu-card hidden">
-<h3>SSLC</h3>
 
-<p style="margin-top:10px;color:#cbd5f5;">
+<h3>
+SSLC
+</h3>
+
+<p style="margin-top:10px;color:#d9e2ff;">
 SFS Matriculation Higher Secondary School
 </p>
 
@@ -769,28 +832,50 @@ SFS Matriculation Higher Secondary School
 
 <div class="container">
 
-<h2 class="section-title hidden">Get In Touch</h2>
+<h2 class="section-title hidden">
+Get In Touch
+</h2>
 
 <div class="contact-grid">
 
 <a class="contact-box hidden" href="mailto:vignesht829@gmail.com">
+
 <h4>Email</h4>
-<p>vignesht829@gmail.com</p>
+
+<p>
+vignesht829@gmail.com
+</p>
+
 </a>
 
 <a class="contact-box hidden" href="https://www.linkedin.com/in/vigneshthanasekaran/" target="_blank">
+
 <h4>LinkedIn</h4>
-<p>linkedin.com/in/vigneshthanasekaran</p>
+
+<p>
+linkedin.com/in/vigneshthanasekaran
+</p>
+
 </a>
 
 <a class="contact-box hidden" href="https://github.com/Vignesht45" target="_blank">
+
 <h4>GitHub</h4>
-<p>github.com/Vignesht45</p>
+
+<p>
+github.com/Vignesht45
+</p>
+
 </a>
 
 <a class="contact-box hidden" href="https://www.hackerrank.com/vignesht829" target="_blank">
+
 <h4>HackerRank</h4>
-<p>hackerrank.com/vignesht829</p>
+
+<p>
+hackerrank.com/vignesht829
+</p>
+
 </a>
 
 </div>
@@ -799,8 +884,10 @@ SFS Matriculation Higher Secondary School
 
 </section>
 
+<!-- Footer -->
+
 <footer>
-Built & Designed by Vignesh Thanasekaran · Embedded Firmware Engineer
+Built & Designed by Vignesh Thanasekaran · Jr Embedded Firmware Engineer
 </footer>
 
 <script>
