@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Vignesh Thanasekaran | Embedded Firmware Engineer</title>
 
@@ -14,14 +14,13 @@
 
 :root{
     --bg:#050816;
-    --bg2:#0b1023;
+    --bg2:#0c1227;
     --card:rgba(255,255,255,0.05);
     --border:rgba(255,255,255,0.08);
     --text:#ffffff;
-    --muted:#9aa4c7;
+    --muted:#98a5c4;
     --accent:#4f8cff;
     --accent2:#7cf7ff;
-    --glow:0 0 40px rgba(79,140,255,.35);
 }
 
 *{
@@ -41,7 +40,7 @@ body{
     overflow-x:hidden;
 }
 
-/* LOADER */
+/* Loader */
 
 #loader{
     position:fixed;
@@ -55,10 +54,8 @@ body{
 }
 
 .loader-name{
-    font-size:clamp(2rem,7vw,6rem);
+    font-size:clamp(2rem,8vw,7rem);
     font-weight:800;
-    letter-spacing:4px;
-    text-transform:uppercase;
     opacity:0;
     background:linear-gradient(90deg,#fff,#4f8cff,#7cf7ff);
     -webkit-background-clip:text;
@@ -67,27 +64,26 @@ body{
 
 .loader-sub{
     margin-top:15px;
-    font-size:14px;
     letter-spacing:6px;
-    color:#8ea2d8;
+    color:#90a5d7;
     opacity:0;
+    font-size:14px;
 }
 
-/* BACKGROUND GLOW */
+/* Background */
 
-.bg-blur{
+.bg1{
     position:fixed;
     width:600px;
     height:600px;
     border-radius:50%;
-    background:radial-gradient(circle,rgba(79,140,255,.22),transparent 70%);
-    top:-200px;
-    right:-150px;
-    z-index:0;
-    animation:float 7s ease-in-out infinite alternate;
+    background:radial-gradient(circle,rgba(79,140,255,.2),transparent 70%);
+    top:-150px;
+    right:-100px;
+    animation:float 7s infinite alternate ease-in-out;
 }
 
-.bg-blur2{
+.bg2{
     position:fixed;
     width:500px;
     height:500px;
@@ -95,8 +91,7 @@ body{
     background:radial-gradient(circle,rgba(124,247,255,.12),transparent 70%);
     bottom:-180px;
     left:-100px;
-    z-index:0;
-    animation:float 9s ease-in-out infinite alternate;
+    animation:float 10s infinite alternate ease-in-out;
 }
 
 @keyframes float{
@@ -104,32 +99,30 @@ body{
     to{transform:translateY(40px);}
 }
 
-/* NAV */
+/* Nav */
 
 nav{
     position:fixed;
     top:0;
     width:100%;
     z-index:100;
-    backdrop-filter:blur(18px);
     background:rgba(4,8,20,.55);
-    border-bottom:1px solid var(--border);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,.05);
 }
 
 .nav-container{
     max-width:1200px;
     margin:auto;
-    padding:20px 30px;
+    padding:22px 30px;
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
 .logo{
-    font-family:'Space Grotesk',sans-serif;
-    font-size:22px;
+    font-size:24px;
     font-weight:700;
-    letter-spacing:1px;
 }
 
 .logo span{
@@ -142,25 +135,25 @@ nav{
 }
 
 .nav-links a{
-    color:var(--muted);
     text-decoration:none;
-    font-size:14px;
+    color:var(--muted);
     transition:.3s;
+    font-size:14px;
 }
 
 .nav-links a:hover{
-    color:white;
+    color:#fff;
 }
 
-/* HERO */
+/* Hero */
 
 .hero{
     min-height:100vh;
     display:flex;
     align-items:center;
+    padding:120px 30px;
     position:relative;
     z-index:1;
-    padding:120px 30px;
 }
 
 .hero-container{
@@ -171,10 +164,9 @@ nav{
 
 .hero-tag{
     color:var(--accent2);
-    font-size:14px;
-    letter-spacing:4px;
+    letter-spacing:5px;
     margin-bottom:20px;
-    text-transform:uppercase;
+    font-size:14px;
 }
 
 .hero h1{
@@ -189,14 +181,14 @@ nav{
 }
 
 .hero-desc{
+    max-width:720px;
     margin-top:30px;
-    max-width:700px;
     color:var(--muted);
+    line-height:1.9;
     font-size:18px;
-    line-height:1.8;
 }
 
-.hero-btns{
+.hero-buttons{
     margin-top:40px;
     display:flex;
     gap:20px;
@@ -213,8 +205,7 @@ nav{
 
 .btn-primary{
     background:linear-gradient(90deg,var(--accent),#7cf7ff);
-    color:#fff;
-    box-shadow:var(--glow);
+    color:white;
 }
 
 .btn-primary:hover{
@@ -222,16 +213,15 @@ nav{
 }
 
 .btn-outline{
-    border:1px solid var(--border);
-    color:#fff;
-    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.12);
+    color:white;
 }
 
 .btn-outline:hover{
-    background:rgba(255,255,255,.08);
+    background:rgba(255,255,255,.05);
 }
 
-/* SECTION */
+/* Section */
 
 section{
     padding:100px 30px;
@@ -246,16 +236,16 @@ section{
 
 .section-title{
     font-size:48px;
-    margin-bottom:20px;
+    margin-bottom:18px;
     font-weight:800;
 }
 
 .section-sub{
     color:var(--muted);
-    margin-bottom:60px;
+    margin-bottom:55px;
 }
 
-/* CARDS */
+/* Grid */
 
 .grid{
     display:grid;
@@ -263,35 +253,25 @@ section{
     gap:28px;
 }
 
+/* Cards */
+
 .card{
     background:var(--card);
     border:1px solid var(--border);
-    backdrop-filter:blur(20px);
     border-radius:24px;
     padding:30px;
     transition:.4s;
-    position:relative;
-    overflow:hidden;
-}
-
-.card::before{
-    content:'';
-    position:absolute;
-    width:200px;
-    height:200px;
-    background:radial-gradient(circle,rgba(79,140,255,.18),transparent 70%);
-    top:-100px;
-    right:-100px;
+    backdrop-filter:blur(20px);
 }
 
 .card:hover{
-    transform:translateY(-10px);
-    border-color:rgba(79,140,255,.45);
+    transform:translateY(-8px);
+    border-color:rgba(79,140,255,.4);
 }
 
 .card h3{
-    font-size:24px;
     margin-bottom:15px;
+    font-size:24px;
 }
 
 .card p{
@@ -308,38 +288,61 @@ section{
 
 .tag{
     background:rgba(79,140,255,.12);
-    border:1px solid rgba(79,140,255,.2);
+    border:1px solid rgba(79,140,255,.18);
     padding:8px 14px;
     border-radius:999px;
     font-size:13px;
-    color:#dbe6ff;
 }
 
-/* EXPERIENCE */
+/* Timeline */
 
-.exp-card{
-    margin-bottom:25px;
+.timeline{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
 }
 
-.exp-date{
+.timeline-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:35px;
+    border-radius:24px;
+    transition:.4s;
+}
+
+.timeline-card:hover{
+    border-color:rgba(79,140,255,.4);
+    transform:translateY(-6px);
+}
+
+.timeline-date{
     color:var(--accent2);
-    margin-bottom:10px;
+    margin-bottom:12px;
     font-size:14px;
 }
 
-.exp-company{
-    margin-top:8px;
-    color:#c6d0f0;
+.timeline-company{
+    color:#cdd8f7;
+    margin-top:6px;
 }
 
-.exp-list{
+.timeline ul{
     margin-top:20px;
     padding-left:18px;
-    color:var(--muted);
     line-height:2;
+    color:var(--muted);
 }
 
-/* CONTACT */
+/* Education */
+
+.edu-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:28px;
+    border-radius:22px;
+}
+
+/* Contact */
 
 .contact-grid{
     display:grid;
@@ -350,10 +353,10 @@ section{
 .contact-box{
     background:var(--card);
     border:1px solid var(--border);
-    padding:28px;
+    padding:30px;
     border-radius:22px;
-    transition:.3s;
     text-decoration:none;
+    transition:.3s;
 }
 
 .contact-box:hover{
@@ -362,7 +365,7 @@ section{
 }
 
 .contact-box h4{
-    color:#fff;
+    color:white;
     margin-bottom:10px;
 }
 
@@ -370,16 +373,16 @@ section{
     color:var(--muted);
 }
 
-/* FOOTER */
+/* Footer */
 
 footer{
-    padding:40px;
     text-align:center;
-    color:#7d89b0;
-    border-top:1px solid var(--border);
+    padding:40px;
+    color:#7e8cb5;
+    border-top:1px solid rgba(255,255,255,.05);
 }
 
-/* SCROLL ANIMATION */
+/* Animation */
 
 .hidden{
     opacity:0;
@@ -392,7 +395,7 @@ footer{
     transform:translateY(0);
 }
 
-/* RESPONSIVE */
+/* Mobile */
 
 @media(max-width:768px){
 
@@ -415,40 +418,45 @@ footer{
 
 <body>
 
-<!-- LOADER -->
+<!-- Loader -->
 
 <div id="loader">
     <div class="loader-name">VIGNESH</div>
     <div class="loader-sub">EMBEDDED FIRMWARE ENGINEER</div>
 </div>
 
-<div class="bg-blur"></div>
-<div class="bg-blur2"></div>
+<div class="bg1"></div>
+<div class="bg2"></div>
 
-<!-- NAV -->
+<!-- Navigation -->
 
 <nav>
-    <div class="nav-container">
-        <div class="logo">Vignesh<span>.</span></div>
+<div class="nav-container">
 
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </div>
+<div class="logo">
+Vignesh<span>.</span>
+</div>
+
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#experience">Experience</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#education">Education</a>
+<a href="#contact">Contact</a>
+</div>
+
+</div>
 </nav>
 
-<!-- HERO -->
+<!-- Hero -->
 
 <section class="hero" id="about">
 
 <div class="hero-container">
 
 <div class="hero-tag">
-EMBEDDED SYSTEMS · STM32 · FIRMWARE
+STM32 · ARM CORTEX-M · EMBEDDED SYSTEMS
 </div>
 
 <h1>
@@ -457,22 +465,22 @@ Vignesh
 </h1>
 
 <p class="hero-desc">
-Driven by a strong passion for embedded systems and firmware development, I specialize in building efficient low-level software for STM32 and ARM Cortex platforms. I enjoy solving real-world engineering challenges involving communication protocols, real-time systems, and precision embedded applications.
+Motivated Junior Embedded Firmware Engineer with industry experience in developing real-time embedded systems for precision metering applications. Skilled in STM32 firmware development, communication protocols, and low-level programming with a strong passion for building reliable embedded solutions.
 </p>
 
-<div class="hero-btns">
-    <a href="#projects" class="btn btn-primary">View Projects</a>
+<div class="hero-buttons">
+<a href="#projects" class="btn btn-primary">Explore Projects</a>
 
-    <a href="mailto:vignesht829@gmail.com" class="btn btn-outline">
-        Contact Me
-    </a>
+<a href="mailto:vignesht829@gmail.com" class="btn btn-outline">
+Contact Me
+</a>
 </div>
 
 </div>
 
 </section>
 
-<!-- EXPERIENCE -->
+<!-- Experience -->
 
 <section id="experience">
 
@@ -481,12 +489,14 @@ Driven by a strong passion for embedded systems and firmware development, I spec
 <h2 class="section-title hidden">Experience</h2>
 
 <p class="section-sub hidden">
-Professional firmware engineering experience and embedded development work.
+Industry experience in firmware engineering and embedded systems.
 </p>
 
-<div class="card exp-card hidden">
+<div class="timeline">
 
-<div class="exp-date">
+<div class="timeline-card hidden">
+
+<div class="timeline-date">
 May 2025 — Present
 </div>
 
@@ -494,89 +504,28 @@ May 2025 — Present
 Junior Embedded Firmware Engineer
 </h3>
 
-<div class="exp-company">
-Signal and Systems Pvt. Ltd. · Chennai
+<div class="timeline-company">
+Signal and Systems Pvt. Ltd · Chennai
 </div>
 
-<ul class="exp-list">
-<li>Developed Smart Calibration firmware for TPRS energy meter systems.</li>
-<li>Worked on STM32 firmware using SPI, UART, I2C communication.</li>
-<li>Implemented peripheral interfacing and real-time data acquisition.</li>
+<ul>
+<li>Developed firmware for TPRS and SPRS precision metering systems.</li>
+<li>Worked with STM32 microcontrollers using SPI, UART, and I2C protocols.</li>
+<li>Implemented real-time data acquisition and peripheral interfacing.</li>
 <li>Prepared technical documentation using Sphinx.</li>
-<li>Worked closely with QA and hardware validation teams.</li>
+<li>Collaborated with hardware and QA teams for validation and testing.</li>
+<li>Completed Embedded Systems Certification from Vector India.</li>
 </ul>
 
 </div>
 
 </div>
 
-</section>
-
-<!-- PROJECTS -->
-
-<section id="projects">
-
-<div class="container">
-
-<h2 class="section-title hidden">Projects</h2>
-
-<p class="section-sub hidden">
-Real-world embedded systems and firmware engineering projects.
-</p>
-
-<div class="grid">
-
-<div class="card hidden">
-<h3>Smart Calibration — TPRS</h3>
-
-<p>
-Developed automated calibration firmware for Three-Phase Portable Reference Standard Meter systems using STM32 microcontrollers.
-</p>
-
-<div class="tags">
-<div class="tag">STM32</div>
-<div class="tag">UART</div>
-<div class="tag">SPI</div>
-<div class="tag">ADC</div>
-</div>
-</div>
-
-<div class="card hidden">
-<h3>Vehicle Dashboard using CAN</h3>
-
-<p>
-Designed multi-node automotive dashboard systems using CAN protocol with LPC2129 microcontrollers.
-</p>
-
-<div class="tags">
-<div class="tag">CAN</div>
-<div class="tag">LPC2129</div>
-<div class="tag">Embedded C</div>
-</div>
-</div>
-
-<div class="card hidden">
-<h3>IoT VR Home Automation</h3>
-
-<p>
-Built VR-based smart home automation with CNN hand gesture recognition and LPG monitoring systems.
-</p>
-
-<div class="tags">
-<div class="tag">Python</div>
-<div class="tag">IoT</div>
-<div class="tag">CNN</div>
-<div class="tag">VR</div>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </section>
 
-<!-- SKILLS -->
+<!-- Skills -->
 
 <section id="skills">
 
@@ -584,10 +533,14 @@ Built VR-based smart home automation with CNN hand gesture recognition and LPG m
 
 <h2 class="section-title hidden">Technical Skills</h2>
 
+<p class="section-sub hidden">
+Core technologies, tools, and engineering expertise.
+</p>
+
 <div class="grid">
 
 <div class="card hidden">
-<h3>Languages</h3>
+<h3>Programming</h3>
 
 <div class="tags">
 <div class="tag">C</div>
@@ -595,22 +548,10 @@ Built VR-based smart home automation with CNN hand gesture recognition and LPG m
 <div class="tag">Embedded C</div>
 <div class="tag">Python</div>
 </div>
-
 </div>
 
 <div class="card hidden">
-<h3>Microcontrollers</h3>
-
-<div class="tags">
-<div class="tag">STM32</div>
-<div class="tag">ARM Cortex-M</div>
-<div class="tag">LPC2129</div>
-</div>
-
-</div>
-
-<div class="card hidden">
-<h3>Protocols</h3>
+<h3>Communication Protocols</h3>
 
 <div class="tags">
 <div class="tag">UART</div>
@@ -619,6 +560,200 @@ Built VR-based smart home automation with CNN hand gesture recognition and LPG m
 <div class="tag">CAN</div>
 <div class="tag">TCP/IP</div>
 </div>
+</div>
+
+<div class="card hidden">
+<h3>Tools & Software</h3>
+
+<div class="tags">
+<div class="tag">STM32CubeIDE</div>
+<div class="tag">Keil µVision</div>
+<div class="tag">Flash Magic</div>
+<div class="tag">Proteus</div>
+<div class="tag">Sphinx</div>
+</div>
+</div>
+
+<div class="card hidden">
+<h3>Operating Systems</h3>
+
+<div class="tags">
+<div class="tag">Linux</div>
+<div class="tag">Windows</div>
+</div>
+</div>
+
+<div class="card hidden">
+<h3>Domain Expertise</h3>
+
+<div class="tags">
+<div class="tag">Embedded Systems</div>
+<div class="tag">Firmware Development</div>
+<div class="tag">Precision Metering</div>
+<div class="tag">Technical Documentation</div>
+<div class="tag">Real-Time Systems</div>
+</div>
+</div>
+
+<div class="card hidden">
+<h3>Achievements</h3>
+
+<div class="tags">
+<div class="tag">Smart India Hackathon 2022</div>
+<div class="tag">First Class Distinction</div>
+<div class="tag">Runner-up Cricket</div>
+<div class="tag">Runner-up Hockey</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Projects -->
+
+<section id="projects">
+
+<div class="container">
+
+<h2 class="section-title hidden">Projects</h2>
+
+<p class="section-sub hidden">
+Embedded firmware and real-world engineering projects.
+</p>
+
+<div class="grid">
+
+<div class="card hidden">
+<h3>TPRS – Portable Reference Standard Meter</h3>
+
+<p>
+Developed firmware for a three-phase portable energy meter calibration system using STM32 microcontrollers with high-accuracy real-time processing.
+</p>
+
+<div class="tags">
+<div class="tag">STM32</div>
+<div class="tag">SPI</div>
+<div class="tag">UART</div>
+<div class="tag">ADC</div>
+</div>
+</div>
+
+<div class="card hidden">
+<h3>SPRS – Single Phase Meter</h3>
+
+<p>
+Implemented firmware modules for voltage, current, and power measurement systems with precision calibration support.
+</p>
+
+<div class="tags">
+<div class="tag">STM32</div>
+<div class="tag">I2C</div>
+<div class="tag">Embedded C</div>
+</div>
+</div>
+
+<div class="card hidden">
+<h3>Vehicle Dashboard using CAN</h3>
+
+<p>
+Designed a multi-node vehicle dashboard using CAN protocol with real-time synchronization and LPC2129 controllers.
+</p>
+
+<div class="tags">
+<div class="tag">CAN Bus</div>
+<div class="tag">LPC2129</div>
+<div class="tag">Embedded C</div>
+</div>
+</div>
+
+<div class="card hidden">
+<h3>Bidirectional Visitor Counter</h3>
+
+<p>
+Built an occupancy monitoring system with EEPROM storage, RTC integration, and automated home lighting control.
+</p>
+
+<div class="tags">
+<div class="tag">EEPROM</div>
+<div class="tag">RTC</div>
+<div class="tag">I2C</div>
+</div>
+</div>
+
+<div class="card hidden">
+<h3>IoT VR Home Automation</h3>
+
+<p>
+Developed a VR-based home automation system integrated with IoT sensors and CNN gesture recognition.
+</p>
+
+<div class="tags">
+<div class="tag">Python</div>
+<div class="tag">CNN</div>
+<div class="tag">VR</div>
+<div class="tag">IoT</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Education -->
+
+<section id="education">
+
+<div class="container">
+
+<h2 class="section-title hidden">Education</h2>
+
+<div class="grid">
+
+<div class="edu-card hidden">
+<h3>B.E Electronics & Communication Engineering</h3>
+
+<p style="margin-top:10px;color:#cbd5f5;">
+Saranathan College of Engineering, Trichy
+</p>
+
+<p style="margin-top:15px;color:var(--muted);line-height:1.8;">
+2020 – 2024 <br>
+CGPA: 8.67 / 10.0 <br>
+First Class with Distinction
+</p>
+
+</div>
+
+<div class="edu-card hidden">
+<h3>Higher Secondary</h3>
+
+<p style="margin-top:10px;color:#cbd5f5;">
+SFS Matriculation Higher Secondary School
+</p>
+
+<p style="margin-top:15px;color:var(--muted);line-height:1.8;">
+2020 <br>
+73.83%
+</p>
+
+</div>
+
+<div class="edu-card hidden">
+<h3>SSLC</h3>
+
+<p style="margin-top:10px;color:#cbd5f5;">
+SFS Matriculation Higher Secondary School
+</p>
+
+<p style="margin-top:15px;color:var(--muted);line-height:1.8;">
+2018 <br>
+89.8%
+</p>
 
 </div>
 
@@ -628,7 +763,7 @@ Built VR-based smart home automation with CNN hand gesture recognition and LPG m
 
 </section>
 
-<!-- CONTACT -->
+<!-- Contact -->
 
 <section id="contact">
 
@@ -645,7 +780,7 @@ Built VR-based smart home automation with CNN hand gesture recognition and LPG m
 
 <a class="contact-box hidden" href="https://www.linkedin.com/in/vigneshthanasekaran/" target="_blank">
 <h4>LinkedIn</h4>
-<p>vigneshthanasekaran</p>
+<p>linkedin.com/in/vigneshthanasekaran</p>
 </a>
 
 <a class="contact-box hidden" href="https://github.com/Vignesht45" target="_blank">
@@ -655,7 +790,7 @@ Built VR-based smart home automation with CNN hand gesture recognition and LPG m
 
 <a class="contact-box hidden" href="https://www.hackerrank.com/vignesht829" target="_blank">
 <h4>HackerRank</h4>
-<p>vignesht829</p>
+<p>hackerrank.com/vignesht829</p>
 </a>
 
 </div>
@@ -670,69 +805,67 @@ Built & Designed by Vignesh Thanasekaran · Embedded Firmware Engineer
 
 <script>
 
-/* LOADER ANIMATION */
+/* Loader Animation */
 
 gsap.to(".loader-name",{
-    opacity:1,
-    duration:1,
-    y:-10
+opacity:1,
+duration:1.2,
+y:-10
 });
 
 gsap.to(".loader-sub",{
-    opacity:1,
-    delay:.7,
-    duration:1
+opacity:1,
+delay:.8,
+duration:1
 });
 
 setTimeout(()=>{
-
-    gsap.to("#loader",{
-        opacity:0,
-        duration:1,
-        onComplete:()=>{
-            document.getElementById("loader").style.display="none";
-        }
-    });
-
+gsap.to("#loader",{
+opacity:0,
+duration:1,
+onComplete:()=>{
+document.getElementById("loader").style.display="none";
+}
+});
 },2500);
 
-/* HERO ANIMATION */
+/* Hero Animation */
 
 gsap.from(".hero-tag",{
-    opacity:0,
-    y:40,
-    delay:2.7,
-    duration:1
+opacity:0,
+y:40,
+delay:2.7,
+duration:1
 });
 
 gsap.from("h1",{
-    opacity:0,
-    y:60,
-    delay:2.9,
-    duration:1
+opacity:0,
+y:60,
+delay:2.9,
+duration:1
 });
 
 gsap.from(".hero-desc",{
-    opacity:0,
-    y:50,
-    delay:3.2,
-    duration:1
+opacity:0,
+y:40,
+delay:3.2,
+duration:1
 });
 
-gsap.from(".hero-btns",{
-    opacity:0,
-    y:40,
-    delay:3.5,
-    duration:1
+gsap.from(".hero-buttons",{
+opacity:0,
+y:40,
+delay:3.5,
+duration:1
 });
 
-/* SCROLL ANIMATION */
+/* Scroll Animation */
 
 const observer=new IntersectionObserver((entries)=>{
 entries.forEach((entry)=>{
-    if(entry.isIntersecting){
-        entry.target.classList.add("show");
-    }
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
 });
 });
 
